@@ -1,0 +1,24 @@
+---
+repos:
+# Disabled as it is currently broken: https://github.com/hashicorp/copywrite/issues/78
+# - repo: https://github.com/hashicorp/copywrite
+#   rev: v0.16.4 # Use any release tag
+#   hooks:
+#     - id: add-headers
+#     - id: check-headers
+- repo: https://github.com/pre-commit/pre-commit-hooks
+  rev: v4.4.0 # Get the latest from: https://github.com/pre-commit/pre-commit-hooks/releases
+  hooks:
+    - id: trailing-whitespace
+      args: [--markdown-linebreak-ext=md]
+- repo: https://github.com/antonbabenko/pre-commit-terraform
+  rev: v1.81.0 # Get the latest from: https://github.com/antonbabenko/pre-commit-terraform/releases
+  hooks:
+    - id: terraform_validate
+    - id: terraform_fmt #* this version of terraform fmt hook fix files
+- repo: https://github.com/terraform-docs/terraform-docs
+  rev: v0.16.0
+  hooks:
+    - id: terraform-docs-system
+      args: ["."]
+...
