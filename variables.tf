@@ -6,7 +6,8 @@ locals {
 }
 
 variable "default_tags" {
-  type = map(string)
+  type        = map(string)
+  description = "a set of tags to watermark the resources you deployed with Terraform."
   default = {
     owner       = "cetin" // update me
     terraformed = "Do not edit manually."

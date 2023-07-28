@@ -7,6 +7,34 @@
 This is a template repo acting as a boilerplate for new [Terraform](https://www.terraform.io/) configs.
 It contains a set of files that will help you keep the repo clean and well-documented.
 
+### How to use it
+
+The best way to use this template is by using the [GitHub CLI (gh)](https://cli.github.com/). It allows you to create a new Terraform config repository from this template, without leaving your terminal.
+
+The advantage over a classical `fork` is that the resulting repo has no relationship with the template repo, no *upstream* remote to clean.
+
+A simple example to create a new config as a private repo, and clone it locally:
+
+```SHELL
+gh repo create my-tf-config --template kral2/terraform-generic-template --private --clone
+```
+
+> [!IMPORTANT]
+>
+> Do not forget to update your files to make this config yours!
+>
+> - repo's documentation and license: `README.md`, `CHANGELOG.md`, and `LICENSE` files
+> - the *.tf files: `main.tf`, `providers.tf`, and `variables.tf`
+
+Finally, install your pre-commit hooks by running these commands:
+
+```SHELL
+pre-commit install
+pre-commit run -a
+```
+
+Now, commit your code as usual. You are good to go! :rocket:
+
 ### Features
 
 #### repo housekeeping
@@ -32,10 +60,11 @@ Before each commit, the following hooks will help to keep your repo clean and we
 
 ### Requirements
 
+- [gh](https://cli.github.com/)
 - [pre-commit](https://pre-commit.com/)
 - [terraform-docs](https://github.com/terraform-docs/terraform-docs)
 - [terraform cli](https://www.terraform.io/downloads.html)
-- [copywrite](https://github.com/hashicorp/copywrite)
+- [copywrite](https://github.com/hashicorp/copywrite) (optional)
 
 ## Terraform Configuration information
 
@@ -59,7 +88,7 @@ No resources.
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
-| default\_tags | n/a | `map(string)` | <pre>{<br>  "owner": "cetin",<br>  "terraformed": "Do not edit manually."<br>}</pre> | no |
+| default\_tags | a set of tags to watermark the resources you deployed with Terraform. | `map(string)` | <pre>{<br>  "owner": "cetin",<br>  "terraformed": "Do not edit manually."<br>}</pre> | no |
 
 ### Outputs
 
